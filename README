@@ -1,0 +1,86 @@
+
+*****************************************************************************
+                       EVALYN -- EVolved ALYNments
+*****************************************************************************
+
+Copyright (C) 2006 Luke Sheneman
+
+A GA for iteratively refining guide trees by evolutionary
+computation for use in progressive multiple sequence alignment as 
+presented in:
+
+ Sheneman, L., J.A. Foster (2004) Evolving Better Multiple Sequence 
+ Alignments, Proceedings of the Genetic and Evolutionary Computation 
+ Conference (GECCO 2004), Seattle, WA.
+
+*****************************************************************************
+
+This version of EVALYN is not quite ready for public consumption.  I have 
+no useful help messages or documentation.  There is some critical missing
+functionality as well, such as the ability to properly handle ambiguity 
+codes in input sequences.  These will be added in future releases.
+
+Basically, EVALYN will read DNA or protein sequences in FASTA format
+and will output an alignment in Clustal W (*.ALN) format.  It will also output
+the best guide tree in Newick format.  Essentially, EVALYN maintains a 
+population of guide trees and iteratively evolves guide trees to improve 
+alignments as measured by a sum-of-pairs fitness function.
+
+
+TO BUILD EVALYN:
+----------------
+
+cd ./ltree
+make
+
+Executable is called "ltree", and will reside in the <evalyndist>/ltree 
+directory.
+
+
+EXAMPLE USAGE:
+--------------
+
+./ltree --infile=proteins.fasta --population=1000 --iterations=10000 \
+    --matrix=blosum62.txt --gapopen=-1.0 --gapextend=-0.1 --rnj
+
+Example substitution matrix formats are shown in <evalyndist>/ltree as:
+"def_dna_matrix.txt" and "def_pro_matrix.txt", which are also the 
+default substitution matrices if none are explicitly specified.
+
+
+COMMON COMMAND-LINE FLAGS:
+--------------------------
+
+** Inputs requiring arguments:
+
+ --infile   = <fasta-formatted input file>
+ --outfile  = <name of output file>
+ --treefile = <name of output Newick-formatted tree file>
+ --matrix   = <name of substitution matrix>
+ --population = <population size, ex. "--population = 500" >
+ --iterations = <number of iterations to run, ex. "--iterations = 1000">
+ --converge = <program stops when it converges when no improvement in x steps>
+ --mutation = <mutation rate, ex. "--mutation=0.01">
+ --gapopen = <cost of opening a gap region, ex. "--gapopen=-4.0">
+ --gapextend = <cost of extending a gap region, ex. "--gapextend=-1.0">
+ --seed = <the random number generated seedm ex, "--seed = 1000">
+
+
+
+** Inputs requiring NO arguments
+
+ --rnj     : seeds population with a relaxed neighbod joining tree>
+ --dna     : specifies that input is a DNA sequence
+ --protein : specifies that input is a protein sequence
+
+****************************************************************************
+
+Please direct questions to: 
+
+Luke Sheneman
+sheneman@cs.uidaho.edu
+
+University of Idaho
+
+****************************************************************************
+
