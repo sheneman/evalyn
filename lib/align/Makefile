@@ -7,7 +7,7 @@
 # Copyright (c) 2003 Luke Sheneman.  All rights reserved.
 #
 # Luke Sheneman
-# sheneman@cs.uidaho.edu
+# sheneman@uidaho.edu
 #
 #
 
