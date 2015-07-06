@@ -1,7 +1,7 @@
 /*
  * $Id: prng.c,v 1.1.1.1 2006/05/09 21:00:46 cvsuser Exp $
  * 
- * prng.c -- Mersenne Twisner Pseudo Random Number Generator
+ * prng.c -- Mersenne Twister Pseudo Random Number Generator
  *
  ********************************************************************************
  *
